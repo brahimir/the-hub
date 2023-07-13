@@ -9,6 +9,8 @@ import apiClient from "../services/apiClient";
 import { useToast } from "@chakra-ui/react";
 
 const useGames = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [games, setGames] = useState<IGame[] | undefined>(undefined);
   const [error, setError] = useState<string | undefined>(undefined);
   const toast = useToast();
@@ -18,6 +20,8 @@ const useGames = () => {
   }, []);
 
   const fetchGames = async () => {
+    setIsLoading(true);
+
     try {
       const response = await apiClient.get<IGamesResponse>("/games");
       if (!response) {
@@ -41,10 +45,12 @@ const useGames = () => {
         duration: 9000,
         isClosable: true
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;

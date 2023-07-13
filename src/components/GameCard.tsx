@@ -1,6 +1,8 @@
 // Models
 import { IGame } from "../models/game.model";
 import CriticScore from "./CriticScore";
+// Services
+import getCroppedImageUrl from "../services/imageCrop";
 // Components
 import PlatformIconList from "./PlatformIconList";
 // Chakra
@@ -12,8 +14,8 @@ interface GameCardProps {
 
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <Card borderRadius={10} overflow={"hidden"}>
-      <Image src={game.background_image} />
+    <Card width={300} borderRadius={10} overflow={"hidden"}>
+      <Image src={getCroppedImageUrl(game.background_image)} />
 
       <CardBody>
         <Heading fontSize="2xl">{game.name}</Heading>
