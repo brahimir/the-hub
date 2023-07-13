@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 // Styles
-import "./assets/css/main.css";
+import "./core/assets/css/main.css";
 import theme from "./theme.ts";
 // Chakra
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";

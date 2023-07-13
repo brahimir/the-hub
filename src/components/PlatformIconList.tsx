@@ -1,5 +1,5 @@
 // Models
-import { Platform } from "../models/game.model";
+import { IPlatform } from "../core/models/game.model";
 // CharkaUI
 import { HStack, Icon } from "@chakra-ui/react";
 // ReactIcons
@@ -10,7 +10,7 @@ import { MdPhoneIphone } from "react-icons/md";
 import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from "react-icons/fa";
 
 interface PlatformIconListProps {
-  platforms: Platform[];
+  platforms: IPlatform[];
 }
 
 const PlatformIconList = ({ platforms }: PlatformIconListProps) => {

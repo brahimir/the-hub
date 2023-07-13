@@ -1,8 +1,8 @@
 // Models
-import { IGame } from "../models/game.model";
+import { IGame } from "../core/models/game.model";
 import CriticScore from "./CriticScore";
 // Services
-import getCroppedImageUrl from "../services/imageCrop";
+import getCroppedImageUrl from "../core/services/imageCrop";
 // Components
 import PlatformIconList from "./PlatformIconList";
 // Chakra
