@@ -7,11 +7,11 @@ export interface IGame {
   id: number;
   name: string;
   background_image: string;
-  parent_platforms: { platform: Platform }[];
+  parent_platforms: { platform: IPlatform }[];
   metacritic: number;
 }
 
-export interface Platform {
+export interface IPlatform {
   id: number;
   name: string;
   slug: string;
