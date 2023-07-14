@@ -1,14 +1,15 @@
 // React
 import { useEffect, useState } from "react";
 // Models
+import { IGenre } from "../models/genre.model";
 import { IGame, IGamesResponse } from "../models/game.model";
 // API
-import { AxiosError } from "axios";
+import { AxiosError, AxiosRequestConfig } from "axios";
 import apiClient from "../services/apiClient";
 // ChakraUI
 import { useToast } from "@chakra-ui/react";
 
-const useGames = () => {
+const useGames = (selectedGenre: IGenre | undefined) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [games, setGames] = useState<IGame[] | undefined>(undefined);
@@ -17,13 +18,17 @@ const useGames = () => {
 
   useEffect(() => {
     fetchGames();
-  }, []);
+  }, [selectedGenre]);
 
   const fetchGames = async () => {
     setIsLoading(true);
 
+    const axiosConfig: AxiosRequestConfig = {
+      params: { genres: selectedGenre?.id }
+    };
+
     try {
-      const response = await apiClient.get<IGamesResponse>("/games");
+      const response = await apiClient.get<IGamesResponse>("/games", axiosConfig);
       if (!response) {
         toast({
           title: `Request failed.`,

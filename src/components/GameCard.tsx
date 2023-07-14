@@ -1,9 +1,9 @@
 // Models
 import { IGame } from "../core/models/game.model";
-import CriticScore from "./CriticScore";
 // Services
 import getCroppedImageUrl from "../core/services/imageCrop";
 // Components
+import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 // Chakra
 import { Box, Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";

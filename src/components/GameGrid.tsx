@@ -1,10 +1,18 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+// Models
+import { IGenre } from "../core/models/genre.model";
+// Components
 import useGames from "../core/hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./skeletons/GameCardSkeleton";
+// ChakraUI
+import { SimpleGrid, Text } from "@chakra-ui/react";
 
-const GameGrid = () => {
-  const { games, error, isLoading } = useGames();
+interface GameGridProps {
+  selectedGenre: IGenre | undefined;
+}
+
+const GameGrid = ({ selectedGenre }: GameGridProps) => {
+  const { games, error, isLoading } = useGames(selectedGenre);
 
   return (
     <>

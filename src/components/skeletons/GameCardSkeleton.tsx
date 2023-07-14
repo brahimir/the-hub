@@ -2,7 +2,7 @@
 import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
 
 const GameCardSkeleton = () => {
-  const loadingSkeletons = [1, 2, 3, 4, 5, 6];
+  const loadingSkeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   return loadingSkeletons.map((skeleton) => {
     return (
