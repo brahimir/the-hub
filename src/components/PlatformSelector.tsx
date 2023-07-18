@@ -14,27 +14,25 @@ const PlatformSelector = ({ selectedPlatform, onSelectedPlatform }: PlatformSele
   const { platforms, error } = usePlatforms();
 
   return (
-    <Box paddingLeft={2} paddingBottom={2}>
-      <Menu>
-        <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-          {selectedPlatform?.name || "Platforms"}
-        </MenuButton>
-        <MenuList>
-          {(error || !platforms?.length) && (
-            <MenuItem>
-              <Text as={"i"}>No platforms to display.</Text>
-            </MenuItem>
-          )}
+    <Menu>
+      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+        {selectedPlatform?.name || "Platforms"}
+      </MenuButton>
+      <MenuList>
+        {(error || !platforms?.length) && (
+          <MenuItem>
+            <Text as={"i"}>No platforms to display.</Text>
+          </MenuItem>
+        )}
 
-          {platforms &&
-            platforms.map((platform) => (
-              <MenuItem onClick={() => onSelectedPlatform(platform)} key={platform.id}>
-                {platform.name}
-              </MenuItem>
-            ))}
-        </MenuList>
-      </Menu>
-    </Box>
+        {platforms &&
+          platforms.map((platform) => (
+            <MenuItem onClick={() => onSelectedPlatform(platform)} key={platform.id}>
+              {platform.name}
+            </MenuItem>
+          ))}
+      </MenuList>
+    </Menu>
   );
 };
 
