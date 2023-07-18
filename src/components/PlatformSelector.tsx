@@ -1,9 +1,10 @@
+// Models
+import { IPlatform } from "../core/models/platform.model";
+// Hooks
+import usePlatforms from "../core/hooks/usePlatforms";
 // ChakraUI
 import { BsChevronDown } from "react-icons/bs";
 import { Box, Button, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react";
-import usePlatforms from "../core/hooks/usePlatforms";
-import { IPlatform } from "../core/models/game.model";
-
 interface PlatformSelectorProps {
   selectedPlatform: IPlatform | undefined;
   onSelectedPlatform: (platform: IPlatform) => void;

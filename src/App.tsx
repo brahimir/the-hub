@@ -1,8 +1,7 @@
 // React
 import { useState } from "react";
 // Models
-import { IGenre } from "./core/models/genre.model";
-import { IPlatform } from "./core/models/game.model";
+import { IGameQuery } from "./core/models/game.model";
 // ChakraUI
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 // Components
@@ -12,8 +11,7 @@ import GenreList from "./components/GenreList";
 import PlatformSelector from "./components/PlatformSelector";
 
 const App = () => {
-  const [selectedGenre, setEelectedGenre] = useState<IGenre | undefined>(undefined);
-  const [selectedPlatform, setSelectedPlatform] = useState<IPlatform | undefined>(undefined);
+  const [gameQuery, setGameQuery] = useState<IGameQuery>({} as IGameQuery);
 
   return (
     <Grid
@@ -36,8 +34,8 @@ const App = () => {
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <GenreList
-            selectedGenre={selectedGenre}
-            onSelectedGenre={(genre) => setEelectedGenre(genre)}
+            selectedGenre={gameQuery.genre}
+            onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </GridItem>
       </Show>
@@ -46,10 +44,10 @@ const App = () => {
       {/* start:: Main Content */}
       <GridItem area="main">
         <PlatformSelector
-          selectedPlatform={selectedPlatform}
-          onSelectedPlatform={(platform) => setSelectedPlatform(platform)}
+          selectedPlatform={gameQuery.platform}
+          onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
         ></PlatformSelector>
-        <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
+        <GameGrid gameQuery={gameQuery} />
       </GridItem>
       {/* end:: Main Content */}
     </Grid>
