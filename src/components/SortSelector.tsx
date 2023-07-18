@@ -1,6 +1,6 @@
 // ChakraUI
 import { BsChevronDown } from "react-icons/bs";
-import { Box, Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 const SortSelector = () => (
   <Menu>
