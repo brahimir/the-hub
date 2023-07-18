@@ -2,7 +2,7 @@
 import { BsChevronDown } from "react-icons/bs";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
-interface SortSelectorProps {
+export interface SortSelectorProps {
   selectedSortOrderValue: string | undefined;
   onSelectedSortOrder: (sortOrder: string) => void;
 }

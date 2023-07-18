@@ -3,14 +3,15 @@ import { useState } from "react";
 // Models
 import { IGameQuery } from "./core/models/game.model";
 // ChakraUI
-import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 // Components
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import PlatformSelector from "./components/PlatformSelector";
-import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 import SearchInput from "./components/SearchInput";
+import SortSelector from "./components/SortSelector";
+import PlatformSelector from "./components/PlatformSelector";
 
 const App = () => {
   const [gameQuery, setGameQuery] = useState<IGameQuery>({} as IGameQuery);
@@ -46,7 +47,11 @@ const App = () => {
       {/* start:: Main Content */}
       <GridItem area="main" padding={2}>
         <Box paddingX={2}>
-          <SearchInput />
+          <GameHeading onClear={() => setGameQuery({} as IGameQuery)} gameQuery={gameQuery} />
+
+          <Box marginY={5}></Box>
+
+          <SearchInput onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
 
           <Box marginY={3}></Box>
 
@@ -62,9 +67,7 @@ const App = () => {
             />
           </HStack>
         </Box>
-
         <Box marginY={5}></Box>
-
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
       {/* end:: Main Content */}
