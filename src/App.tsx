@@ -9,7 +9,6 @@ import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import GameHeading from "./components/GameHeading";
-import SearchInput from "./components/SearchInput";
 import SortSelector from "./components/SortSelector";
 import PlatformSelector from "./components/PlatformSelector";
 
@@ -29,7 +28,7 @@ const App = () => {
     >
       {/* start:: Navbar */}
       <GridItem area="nav" padding={3}>
-        <NavBar />
+        <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
       </GridItem>
       {/* end:: Navbar */}
 
@@ -50,10 +49,6 @@ const App = () => {
           <GameHeading onClear={() => setGameQuery({} as IGameQuery)} gameQuery={gameQuery} />
 
           <Box marginY={5}></Box>
-
-          <SearchInput onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
-
-          <Box marginY={3}></Box>
 
           <HStack justifyContent={"start"}>
             <PlatformSelector

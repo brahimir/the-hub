@@ -2,15 +2,14 @@
 import ThemeToggle from "./ThemeToggle";
 import logo from "../core/assets/images/gamehub-logo.png";
 // ChakraUI
-import { HStack, Image, Text } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
+import SearchInput, { SearchInputProps } from "./SearchInput";
 
-const NavBar = () => {
+const NavBar = ({ onSearch }: SearchInputProps) => {
   return (
-    <HStack justifyContent={"space-between"}>
-      <HStack spacing={5}>
-        <Image src={logo} boxSize="60px" />
-        <Text fontSize={"2xl"}>GameHub</Text>
-      </HStack>
+    <HStack justifyContent={"space-between"} spacing={3}>
+      <Image src={logo} boxSize="60px" />
+      <SearchInput onSearch={(searchText) => onSearch(searchText)} />
       <ThemeToggle></ThemeToggle>
     </HStack>
   );
