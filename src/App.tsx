@@ -2,12 +2,13 @@
 import { useState } from "react";
 // Models
 import { IGenre } from "./core/models/genre.model";
+// ChakraUI
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 // Components
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-// ChakraUI
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import PlatformSelector from "./components/PlatformSelector";
 
 const App = () => {
   const [selectedGenre, setEelectedGenre] = useState<IGenre | undefined>(undefined);
@@ -42,6 +43,7 @@ const App = () => {
 
       {/* start:: Main Content */}
       <GridItem area="main">
+        <PlatformSelector></PlatformSelector>
         <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
       {/* end:: Main Content */}

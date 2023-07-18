@@ -21,7 +21,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: GenreListProps) => {
       {isLoading && <GenreListSkeleton />}
 
       <List>
-        {genres?.map((genre, index) => (
+        {genres?.map((genre) => (
           <ListItem key={genre.id} paddingY={2}>
             <HStack>
               <Image boxSize={10} borderRadius={30} src={getCroppedImageUrl(genre.image_background)} />
