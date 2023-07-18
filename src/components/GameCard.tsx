@@ -6,7 +6,7 @@ import getCroppedImageUrl from "../core/services/imageCrop";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 // Chakra
-import { Box, Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import { Card, CardBody, CardFooter, HStack, Heading, Image, Text } from "@chakra-ui/react";
 
 interface GameCardProps {
   game: IGame;
@@ -18,14 +18,11 @@ const GameCard = ({ game }: GameCardProps) => {
       <Image src={getCroppedImageUrl(game.background_image)} />
 
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-
-        <Box marginY={3}></Box>
-
-        <HStack justifyContent={"space-between"}>
+        <HStack justifyContent={"space-between"} marginBottom={3}>
           <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize="xl">{game.name}</Heading>
       </CardBody>
     </Card>
   );
