@@ -1,5 +1,5 @@
 // Models
-import { IPlatform } from "../core/models/game.model";
+import { IPlatform } from "../core/models/platform.model";
 // CharkaUI
 import { HStack, Icon } from "@chakra-ui/react";
 // ReactIcons

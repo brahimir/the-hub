@@ -1,7 +1,7 @@
 // React
 import { useEffect, useState } from "react";
 // Models
-import { IPlatform } from "../models/game.model";
+import { IPlatform } from "../models/platform.model";
 import { IPlatformsResponse } from "../models/platform.model";
 // API
 import { AxiosError } from "axios";
