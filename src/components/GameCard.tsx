@@ -6,7 +6,7 @@ import getCroppedImageUrl from "../core/services/imageCrop";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 // Chakra
-import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import { Card, CardBody, CardFooter, HStack, Heading, Image, Text } from "@chakra-ui/react";
 
 interface GameCardProps {
   game: IGame;
