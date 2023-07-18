@@ -1,6 +1,8 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
+// Components
 import ThemeToggle from "./ThemeToggle";
 import logo from "../core/assets/images/gamehub-logo.png";
+// ChakraUI
+import { HStack, Image, Text } from "@chakra-ui/react";
 
 const NavBar = () => {
   return (

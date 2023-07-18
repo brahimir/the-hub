@@ -9,16 +9,14 @@ interface SortSelectorProps {
 
 const SortSelector = ({ selectedSortOrderValue, onSelectedSortOrder }: SortSelectorProps) => {
   // ? values prefixed with a "-" indicates a reversed sort order when processed by the API.
-  const sortOrders = [
+  const sortOptions = [
     { value: "", label: "Relevance" },
-    { value: "-added", label: "Date Added" },
     { value: "name", label: "Name" },
     { value: "-released", label: "Release Date" },
-    { value: "-metacritic", label: "Popularity" },
-    { value: "-rating", label: "Average Rating" }
+    { value: "-metacritic", label: "Rating" }
   ];
 
-  const currentSortOrder = sortOrders.find((order) => order.value === selectedSortOrderValue);
+  const currentSortOrder = sortOptions.find((option) => option.value === selectedSortOrderValue);
 
   return (
     <Menu>
@@ -26,13 +24,13 @@ const SortSelector = ({ selectedSortOrderValue, onSelectedSortOrder }: SortSelec
         {currentSortOrder?.label || "Relevance"}
       </MenuButton>
       <MenuList>
-        {sortOrders.map((order) => (
+        {sortOptions.map((option) => (
           <MenuItem
-            onClick={() => onSelectedSortOrder(order.value)}
-            key={order.value}
-            value={order.value}
+            onClick={() => onSelectedSortOrder(option.value)}
+            key={option.value}
+            value={option.value}
           >
-            {order.label}
+            {option.label}
           </MenuItem>
         ))}
       </MenuList>
