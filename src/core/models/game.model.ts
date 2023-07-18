@@ -5,6 +5,7 @@ import { IPlatform } from "./platform.model";
 export interface IGameQuery {
   genre: IGenre | undefined;
   platform: IPlatform | undefined;
+  sortOrder: string;
 }
 
 export interface IGamesResponse {
