@@ -8,8 +8,7 @@ interface SortSelectorProps {
 }
 
 const SortSelector = ({ selectedSortOrderValue, onSelectedSortOrder }: SortSelectorProps) => {
-  // ? values prefixed with a "-" indicates a reversed sort order when passed to the API; shows the
-  // ? latest first.
+  // ? values prefixed with a "-" indicates a reversed sort order when processed by the API.
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date Added" },
