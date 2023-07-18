@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 // Models
 import { IGenre } from "../models/genre.model";
-import { IGame, IGamesResponse } from "../models/game.model";
+import { IGame, IGamesResponse, IPlatform } from "../models/game.model";
 // API
 import { AxiosError, AxiosRequestConfig } from "axios";
 import apiClient from "../services/apiClient";
 // ChakraUI
 import { useToast } from "@chakra-ui/react";
 
-const useGames = (selectedGenre: IGenre | undefined) => {
+const useGames = (selectedGenre: IGenre | undefined, selectedPlatform: IPlatform | undefined) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [games, setGames] = useState<IGame[] | undefined>(undefined);
@@ -18,13 +18,16 @@ const useGames = (selectedGenre: IGenre | undefined) => {
 
   useEffect(() => {
     fetchGames();
-  }, [selectedGenre]);
+  }, [selectedGenre, selectedPlatform]);
 
   const fetchGames = async () => {
     setIsLoading(true);
 
     const axiosConfig: AxiosRequestConfig = {
-      params: { genres: selectedGenre?.id }
+      params: {
+        genres: selectedGenre?.id,
+        platforms: selectedPlatform?.id
+      }
     };
 
     try {

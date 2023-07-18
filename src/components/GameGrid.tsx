@@ -6,13 +6,15 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./skeletons/GameCardSkeleton";
 // ChakraUI
 import { SimpleGrid, Text } from "@chakra-ui/react";
+import { IPlatform } from "../core/models/game.model";
 
 interface GameGridProps {
   selectedGenre: IGenre | undefined;
+  selectedPlatform: IPlatform | undefined;
 }
 
-const GameGrid = ({ selectedGenre }: GameGridProps) => {
-  const { games, error, isLoading } = useGames(selectedGenre);
+const GameGrid = ({ selectedGenre, selectedPlatform }: GameGridProps) => {
+  const { games, error, isLoading } = useGames(selectedGenre, selectedPlatform);
 
   return (
     <>
